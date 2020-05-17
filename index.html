@@ -77,6 +77,13 @@ git show 6c2e81b | Просмотреть изменения по конкрет
 git show master | Просмотреть изменения по последнему коммит в ветке "master".
 
 #-------------------------------------------------------------------------------
+# Сравнение
+#-------------------------------------------------------------------------------
+
+git diff --name-only | Вывести только имена файлов.
+git diff index.html user.html | Вывести только список файлов.
+
+#-------------------------------------------------------------------------------
 # Сравнение рабочей директории
 #-------------------------------------------------------------------------------
 
@@ -84,12 +91,6 @@ git diff | С индекс, если индекс пуст, то с текущи
 git diff @ | С текущим коммит.
 git diff 6c2e81b | С коммит "6c2e81b".
 git diff master | С последним коммит в "master".
-
-# Только для файла "index.html"
-git diff index.html
-git diff @ index.html
-git diff 6c2e81b index.html
-git diff master index.html
 
 #-------------------------------------------------------------------------------
 # Сравнение индекс
@@ -99,19 +100,11 @@ git diff --cached | С текущим коммит.
 git diff --cached 6c2e81b | С коммит "6c2e81b".
 git diff --cached master | С последним коммит в "master".
 
-# Только для файла "index.html"
-git diff --cached index.html
-git diff --cached 6c2e81b index.html
-git diff --cached master index.html
-
 #-------------------------------------------------------------------------------
 # Сравнение коммитов
 #-------------------------------------------------------------------------------
 
 git diff 6c2e81b 4eb51f4 | Коммит "6c2e81b" с коммит "4eb51f4".
-
-# Только для файлов "index.html", "user.html".
-git diff 6c2e81b 4eb51f4 index.html user.html
 
 #-------------------------------------------------------------------------------
 # Сравнение между ветками
@@ -120,11 +113,6 @@ git diff 6c2e81b 4eb51f4 index.html user.html
 git diff master feature | С последним коммит в "master" и "feature".
 git diff master..feature | Тоже самое.
 git diff master...feature | С коммит на котором отделилась "feature" от "master" c последним коммит в "feature".
-
-# Только для файла "index.html"
-git diff master feature index.html
-git diff master..feature index.html
-git diff master...feature index.html
 
 #-------------------------------------------------------------------------------
 </pre>
