@@ -5,7 +5,7 @@
 <img src="img/log.png" width="711" height="139">
 
 # Одноразовый вывод (без сохранения в конфиг)
-git log --graph --decorate -15 --all --date-order --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(yellow)%h%C(reset) %C(dim green)%cd%C(reset) |%C(#F78972)%d%C(reset) %C(#9AEDF1)%s'
+git log -15 --all --graph --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(yellow)%h%C(reset) %C(dim green)%cd%C(reset) |%C(#F78972)%d%C(reset) %C(#9AEDF1)%s'
 
 # Сохранить в конфиг пользователя
 git config --global format.pretty format:'%C(yellow)%h%C(reset) %C(dim green)%cd%C(reset) |%C(#F78972)%d%C(reset) %C(#9AEDF1)%s'
@@ -16,7 +16,7 @@ git config --global --unset format.pretty
 git config --global --unset log.date
 
 # Вывести последние 15 коммитов
-git log --graph --decorate -15 --all --date-order
+git log -15 --all --graph
 
 #-------------------------------------------------------------------------------
 
