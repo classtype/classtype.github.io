@@ -16,7 +16,7 @@ git config --list --global
 
 #-------------------------------------------------------------------------------
 
-git log --pretty=format:'%C(yellow)%h %C(dim green)%cd %C(reset)|%C(#F78972)%d %C(#9AEDF1)%s' --date=format:'%F %R'
+git log --graph --decorate -30 --all --date-order --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(yellow)%h%C(reset) %C(dim green)%cd%C(reset) |%C(#F78972)%d%C(reset) %C(#9AEDF1)%s'
 
 #-------------------------------------------------------------------------------
 
@@ -29,20 +29,3 @@ git config --global --unset user.name | Удалит атрибут "user.name" 
 
 #-------------------------------------------------------------------------------
 </pre>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
