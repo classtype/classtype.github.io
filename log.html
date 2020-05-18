@@ -6,7 +6,7 @@
 # Одноразовый вывод (без сохранения в конфиг)
 git log --graph --decorate -30 --all --date-order --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(yellow)%h%C(reset) %C(dim green)%cd%C(reset) |%C(#F78972)%d%C(reset) %C(#9AEDF1)%s'
 
-# Сохранить в конфиге пользователя
+# Сохранить в конфиг пользователя
 git config --global format.pretty format:'%C(yellow)%h%C(reset) %C(dim green)%cd%C(reset) |%C(#F78972)%d%C(reset) %C(#9AEDF1)%s'
 git config --global log.date format-local:'%Y-%m-%d %H:%M'
 
