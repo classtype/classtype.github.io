@@ -1,3 +1,6 @@
+<pre style="display:block; margin:auto; width:50%; font-size:18px;">
+#-------------------------------------------------------------------------------
+
 git log --pretty=format:'%C(yellow)%h %C(dim green)%cs %C(reset)| %C(cyan)%s%d %C(#667788)[%an]' --date=format:'%F %R'
 git log --pretty=format:'%C(yellow)%h %C(dim green)%cs %C(reset)|%C(#f78972)%d %C(#9aedf1)[%s]'
 git log --pretty=format:'%C(dim green)%cd %C(reset)'
@@ -5,8 +8,23 @@ git log --pretty=format:'%C(dim green)%cd %C(reset)'
 git config --global pretty.my format
 git config --global format.pretty my
 
+git config --global test1.test2 test3
+
+git config --global --unset pretty.my
+
 git config --list --global
 
+#-------------------------------------------------------------------------------
+
+git config --list | Вывести все настройки.
+git config --list --local | Тоже, самое, но для рабочей директории.
+git config --list --global | Тоже, самое, но для пользователя.
+git config --list --system | Тоже, самое, но для всех пользователей.
+git config --global user.name 'value' | Добавить атрибут "user.name" со значением "value" в настройки пользователя.
+git config --global --unset user.name | Удалит атрибут "user.name" из настроек пользователя.
+
+#-------------------------------------------------------------------------------
+</pre>
 
 
 
