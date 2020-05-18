@@ -72,6 +72,8 @@ git log -S "foo()" | Только в которых были добавлены 
 git log --oneline | Сократить вывод до одной строки на коммит.
 git log --oneline --abbrev=4 | Сократить хэш коммита до 4 символов.
 git log --oneline --graph | Визуализировать графический вывод веток.
+
+git log master...feature --boundary | Ветки "master" и "feature" включительно до коммит где они разделились.
 git log ..feature | Только коммиты из ветки "feature" исключая коммиты из текущей ветки.
 git log feature ^master | Только коммиты из ветки "feature" исключая коммиты из ветки "master".
 git log feature ^master --boundary | Тоже самое, но дополнительно вывести коммит на котором ветки разделились.
