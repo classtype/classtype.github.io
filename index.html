@@ -72,7 +72,7 @@ git log -S "foo()" | Только в которых были добавлены 
 git log --oneline | Сократить вывод до одной строки на коммит.
 git log --oneline --abbrev=4 | Сократить хэш коммита до 4 символов.
 git log --oneline --graph | Визуализировать графический вывод веток.
-git log feature ^master | Только коммиты из ветки "feature" с исключением всех коммитов из ветки "master".
+git log feature ^master | Только коммиты из ветки "feature" исключая всех коммиты из ветки "master".
 git log master..feature | Тоже самое.
 git log @..feature | Тоже самое, но только если текущая ветка "master".
 
