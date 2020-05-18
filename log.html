@@ -1,26 +1,25 @@
 <pre style="display:block; margin:auto; width:50%; font-size:18px;">
 #-------------------------------------------------------------------------------
-
-git log --pretty=format:'%C(yellow)%h %C(dim green)%cs %C(reset)| %C(cyan)%s%d %C(#667788)[%an]' --date=format:'%F %R'
-git log --pretty=format:'%C(yellow)%h %C(dim green)%cs %C(reset)|%C(#f78972)%d %C(#9aedf1)[%s]'
-git log --pretty=format:'%C(dim green)%cd %C(reset)'
-
-git config --global pretty.my format
-git config --global format.pretty my
-
-git config --global test1.test2 test3
-
-git config --global --unset pretty.my
-
-git config --list --global
-
+# Красивый вывод списка коммитов
 #-------------------------------------------------------------------------------
 
+# Одноразовый вывод (без сохранения в конфиг)
 git log --graph --decorate -30 --all --date-order --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(yellow)%h%C(reset) %C(dim green)%cd%C(reset) |%C(#F78972)%d%C(reset) %C(#9AEDF1)%s'
 
+# Сохранить в конфиге пользователя
+git config --global format.pretty format:'%C(yellow)%h%C(reset) %C(dim green)%cd%C(reset) |%C(#F78972)%d%C(reset) %C(#9AEDF1)%s'
+git config --global log.date format-local:'%Y-%m-%d %H:%M'
+
+# Удалить из конфига пользователя
+git config --global --unset format.pretty
+git config --global --unset log.date
+
+# Вывести списка последних 30 коммитов
+git log --graph --decorate -30 --all --date-order
+
 #-------------------------------------------------------------------------------
 
-git config --list | Вывести все настройки.
+git config --list | Вывести настройки всех конфигов.
 git config --list --local | Тоже, самое, но для рабочей директории.
 git config --list --global | Тоже, самое, но для пользователя.
 git config --list --system | Тоже, самое, но для всех пользователей.
