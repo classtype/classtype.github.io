@@ -1,0 +1,5 @@
+a {text-decoration:none;}
+a:hover {text-decoration:underline;}
+
+.links {display:block; margin:auto; width:25%; font-size:18px;}
+.text {display:block; margin:auto; width:50%; font-size:18px;}
