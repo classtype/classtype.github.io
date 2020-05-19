@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="src/css/style.css" rel="stylesheet">
+</head>
+<body>
+<pre class="text"><a href="/">Вернуться</a>
+--------------------------------------------------------------------------------
+
+# Быстрый коммит на сервер
+git add .&&git commit --amend --no-edit&&git push -f
+
+# Наглядно сравнить две ветки
+git log master...feature --oneline --graph --boundary
+
+--------------------------------------------------------------------------------
+# Конфликты
+--------------------------------------------------------------------------------
+
+# Отменить слияние
+git merge --abort
+
+# Продолжить слияние
+git merge --continue
+
+# Добавить в конфликтный файл третью версию (до изменений)
+git checkout --conflict=diff3 --merge index.html
+
+# Сохранить в конфиг
+git config --global merge.conflictStyle diff3
+
+# Удалить из конфига
+git config --global --unset merge.conflictStyle
+
+--------------------------------------------------------------------------------
+</pre>
+</body>
+</html>
