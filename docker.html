@@ -10,13 +10,13 @@
 # Удаление всех запущенных контейнеров
 --------------------------------------------------------------------------------
 
-docker rm $(sudo docker ps -a -f status=exited -f status=created -q) && sudo docker ps -a
+sudo docker rm $(sudo docker ps -a -f status=exited -f status=created -q) && sudo docker ps -a
 
 --------------------------------------------------------------------------------
 # Удаление всех образов
 --------------------------------------------------------------------------------
 
-docker rmi $(sudo docker images -a -q) && sudo docker images
+sudo docker rmi $(sudo docker images -a -q) && sudo docker images
 
 --------------------------------------------------------------------------------
 </pre>
