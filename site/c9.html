@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/tomorrow-night.min.css" rel="stylesheet">
+	<link href="./src/css/style.css" rel="stylesheet">
+</head>
+<body>
+<pre class="text"><a href="./index.html">Вернуться</a>
+<hr>
+
+<div class="header1">Удалить дерриктоию workspace</div>
+<code>sudo rm -r workspace
+
+</code>
+
+<div class="header1">Запустить новый контейнер cloud9</div>
+<code>clear && docker run -d --rm \
+           -v $(pwd)/workspace:/workspace \
+           -v $(pwd)/user.settings:/root/.c9/user.settings \
+           -p 8181:8181 sapk/cloud9 \
+           --auth : &&
+clear && docker ps -a
+
+</code>
+
+<div class="header1">Удалить все контейнеры</div>
+<code>clear && docker stop $(docker ps -aq) &&
+clear && docker ps -a
+
+</code>
+
+<div class="header1">Список текущих контейнеров</div>
+<code>clear && docker ps -a
+
+</code>
+
+
+Как автоматически запускать контейнеры Docker после перезагрузки?
+
+• <a href="https://www.reg.ru/qa/t/kak-avtomaticheski-zapuskat-kontejnery-docker-posle-perezagruzki/108">Общая информация</a>
+
+
+</pre>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad('language-shell');</script>
+</body>
+</html>

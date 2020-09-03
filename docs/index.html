@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>App.init</title>
+<link rel="stylesheet" href="https://unpkg.com/docute@4/dist/docute.css">
+<link href="https://unpkg.com/prismjs@1.22.0/themes/prism-tomorrow.css" rel="stylesheet" />
+<style>
+.token.comment,
+.token.block-comment {
+    font-style: normal;
+}
+.img {display:block; text-align:center;}
+.img img {border:1px solid #999999;}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script src="https://unpkg.com/docute@4/dist/docute.js"></script>
+<script>
+Prism.languages.app_init = {
+	'comment': /#.*/
+};
+new Docute({
+    target: 'app',
+    title: 'App.init',
+    //highlight: ['properties'],
+    //highlight: ['apacheconf','applescript','cmake','editorconfig','hcl','makefile','parser','solution-file','stan','tap','tcl','warpscript'],
+    editLinkBase: 'https://github.com/classtype/classtype.github.io/tree/master/docs',
+    editLinkText: 'Редактировать эту страницу на GitHub',
+    detectSystemDarkTheme: true,
+    darkThemeToggler: true,
+    sourcePath: './',
+    nav: [
+        {title: 'GitHub', link: 'https://github.com/classtype/app.init'}
+    ],
+    sidebar: [
+        {title: 'Что такое App.init?', link: './'},
+        {title: 'Быстрый старт', link: './bot.get.start'},
+        {title: 'Внутренний (this)', link: './bot.this'},
+        {title: 'Клавиатура (обычная)', link: './bot.keyboard'},
+        {title: 'Клавиатура (встроенная)', link: './bot.inlineKeyboard'},
+        {title: 'this.send', link: './bot.this.send'},
+        {
+            title: 'Обработчики',
+            children: [
+                {title: 'onText', link: './bot.onText'},
+                {title: 'onClick', link: './bot.onClick'},
+                {title: 'onCommand', link: './bot.onCommand'},
+                {title: 'onStart', link: './bot.onStart'},
+                {title: 'onHelp', link: './bot.onHelp'},
+                {title: 'onSettings', link: './bot.onSettings'}
+            ]
+        }
+    ]
+});
+</script>
+</body>
+</html>

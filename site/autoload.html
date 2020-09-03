@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/tomorrow-night.min.css" rel="stylesheet">
+	<link href="./src/css/style.css" rel="stylesheet">
+</head>
+<body>
+<pre class="text"><a href="./index.html">Вернуться</a>
+<hr>
+<div class="header3">Удаление сервиса "startscript.service".</div>
+
+<div class="header2">1. Проверить, что такой сервис есть.</div>
+<code class="sh">sudo systemctl status startscript.service
+
+</code>
+
+<div class="header2">2. Проверить что в "/etc/systemd/system/" есть файл "startscript.service".</div>
+<code class="sh">cat /etc/systemd/system/startscript.service
+
+</code>
+
+<div class="header2">3. Удалить сервис.</div>
+<code class="sh">sudo systemctl stop startscript.service &&
+sudo systemctl disable startscript.service &&
+sudo rm /etc/systemd/system/startscript.service &&
+sudo systemctl daemon-reload &&
+sudo systemctl reset-failed
+
+</code>
+
+
+
+<div class="header3">Автозагрузка Cloud9.</div>
+
+<div class="header2">1. Создать в "/home/sergei/autoload/" файл "cloud9".</div>
+<code class="sh">#!/bin/bash -e
+node /home/sergei/cloud9/server -a : --l 192.168.1.2 -p 12345 -w ~/
+
+</code>
+
+<div class="header2">2. Присвоить права на исполнение.</div>
+<code class="sh">chmod +x /home/sergei/autoload/cloud9
+
+</code>
+
+<div class="header2">3. Проверить, что такого сервиса нет.</div>
+<code class="sh">sudo systemctl status cloud9.service
+
+</code>
+
+<div class="header2">4. Создать в "/home/sergei/autoload/services/" файл "cloud9.service".</div>
+<code class="sh">[Unit]
+Description=Autoload Cloud9
+
+[Service]
+Type=forking
+WorkingDirectory=/home/sergei/cloud9
+ExecStart=/home/sergei/autoload/cloud9
+User=sergei
+TimeoutSec=0
+
+[Install]
+WantedBy=multi-user.target
+
+</code>
+
+<div class="header2">5. Проверить что в "/etc/systemd/system/" файл НЕ существует.</div>
+<code class="sh">cat /etc/systemd/system/cloud9.service
+
+</code>
+
+
+<div class="header2">6. Переместить файл "cloud9.service" в "/etc/systemd/system/".</div>
+<code class="sh">sudo mv /home/sergei/autoload/services/cloud9.service /etc/systemd/system/cloud9.service
+
+</code>
+
+<div class="header2">7. Перезагрузить демон.</div>
+<code class="sh">sudo systemctl daemon-reload &&
+sudo systemctl enable cloud9.service
+
+</code>
+
+<div class="header2">8. Проверить статус "cloud9.service".</div>
+<code class="sh">clear &&
+sudo systemctl start cloud9.service &&
+sudo systemctl status cloud9.service
+
+</code>
+
+<div class="header2">9. Перезагрузить сервер.</div>
+<code class="sh">sudo shutdown -r now
+
+</code>
+
+
+
+<div class="header3">Проброс портов с 8000 на 80.</div>
+
+<div class="header2">1. Создать в "/home/sergei/autoload/" файл "ports".</div>
+<code class="sh">#!/bin/bash -e
+sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8000
+
+</code>
+
+<div class="header2">2. Присвоить права на исполнение.</div>
+<code class="sh">chmod +x /home/sergei/autoload/ports
+
+</code>
+
+<div class="header2">3. Проверить, что такого сервиса нет.</div>
+<code class="sh">sudo systemctl status ports.service
+
+</code>
+
+<div class="header2">4. Создать в "/home/sergei/autoload/services/" файл "ports.service".</div>
+<code class="sh">[Unit]
+Description=Autoload Ports
+
+[Service]
+Type=forking
+ExecStart=/home/sergei/autoload/ports
+User=root
+TimeoutSec=0
+
+[Install]
+WantedBy=multi-user.target
+
+</code>
+
+<div class="header2">5. Проверить что в "/etc/systemd/system/" файл НЕ существует.</div>
+<code class="sh">cat /etc/systemd/system/ports.service
+
+</code>
+
+
+<div class="header2">6. Переместить файл "ports.service" в "/etc/systemd/system/".</div>
+<code class="sh">sudo mv /home/sergei/autoload/services/ports.service /etc/systemd/system/ports.service
+
+</code>
+
+<div class="header2">7. Перезагрузить демон.</div>
+<code class="sh">sudo systemctl daemon-reload &&
+sudo systemctl enable ports.service
+
+</code>
+
+<div class="header2">8. Проверить статус "ports.service".</div>
+<code class="sh">clear &&
+sudo systemctl start ports.service &&
+sudo systemctl status ports.service
+
+</code>
+
+<div class="header2">9. Перезагрузить сервер.</div>
+<code class="sh">sudo shutdown -r now
+
+</code>
+
+
+</pre>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad('language-shell');</script>
+</body>
+</html>

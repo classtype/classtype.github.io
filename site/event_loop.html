@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/tomorrow-night.min.css" rel="stylesheet">
+	<link href="./src/css/style.css" rel="stylesheet">
+</head>
+<body>
+<pre class="text"><a href="./index.html">Вернуться</a>
+<hr>
+<div class="header1">Очередь событий (Event Loop)</div>
+<div class="center"><img src="./src/img/event_loop.png" width="236" height="192"></div>
+<code class="javascript">var colors = require('colors');
+
+/* Макрозадачи */
+setImmediate(() => {
+    console.log('#9 setImmediate'.cyan);
+});
+setTimeout(() => {
+    console.log('#8 setTimeout'.green);
+}, 0);
+
+/* Микрозадачи */
+queueMicrotask(() => {
+    console.log('#5 queueMicrotask 1'.magenta);
+});
+Promise.resolve().then(() => {
+    console.log('#6 Promise.resolve().then'.bgBlack);
+});
+queueMicrotask(() => {
+    console.log('#7 queueMicrotask 2'.magenta);
+});
+process.nextTick(() => {
+    console.log('#4 process.nextTick'.red);
+});
+
+/* Макрозадачи */
+console.log('#1 StartScript'.yellow);
+
+new Promise(() => {
+    console.log('#2 new Promise'.bgBlack);
+});
+
+console.log('#3 EndScript'.yellow);
+
+/*
+ * Вывод:
+ * #1 StartScript
+ * #2 new Promise
+ * #3 EndScript
+ * #4 process.nextTick
+ * #5 queueMicrotask 1
+ * #6 Promise.resolve().then
+ * #7 queueMicrotask 2
+ * #8 setTimeout
+ * #9 setImmediate
+ **/
+</code>
+
+
+</pre>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad('language-shell');</script>
+</body>
+</html>
