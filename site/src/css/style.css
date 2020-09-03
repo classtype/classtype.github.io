@@ -1,0 +1,22 @@
+a {text-decoration:none;}
+a:hover {text-decoration:underline;}
+
+.links {display:block; margin:auto; width:25%; font-size:18px;}
+.text {display:block; margin:auto; width:50%; font-size:18px;}
+
+.bold {font-weight:bold;}
+.center {text-align:center;}
+.px14 {font-size:14px;}
+.px24 {font-size:24px;}
+
+.border1 {border:1px solid #999999;}
+
+.header1, .header2, .header3, .header4 {color:#777777; font-family:Tahoma; font-size:24px; font-weight:bold;}
+.header1 {text-align:center;}
+.header3 {text-align:center; font-size:36px;}
+
+.left {text-align:left !important;}
+.center {text-align:center !important;}
+.right {text-align:right !important;}
+
+.javascript {padding:1.0em; font-size:14px;}

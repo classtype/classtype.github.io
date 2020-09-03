@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="./src/css/style.css" rel="stylesheet">
+</head>
+<body>
+<pre class="text"><a href="./index.html">Вернуться</a>
+--------------------------------------------------------------------------------
+# Перенаправление портов 80 на 8080
+--------------------------------------------------------------------------------
+
+sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+
+# Посмотреть текущую версию ubuntu
+cat /etc/lsb-release
+
+--------------------------------------------------------------------------------
+# Ссылки
+--------------------------------------------------------------------------------
+
+• <a href="https://o7planning.org/ru/11363/redirecting-port-80-443-on-ubuntu-server-using-iptables">https://o7planning.org/ru/11363/redirecting-port-80-443-on-ubuntu-server-using-iptables</a>
+• <a href="https://eusenko.blogspot.com/2013/05/8080-80.html">https://eusenko.blogspot.com/2013/05/8080-80.html</a>
+
+--------------------------------------------------------------------------------
+
+
+</pre>
+</body>
+</html>

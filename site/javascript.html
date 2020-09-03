@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/tomorrow-night.min.css" rel="stylesheet">
+	<link href="./src/css/style.css?1" rel="stylesheet">
+</head>
+<body>
+<pre class="text"><a href="./index.html">Вернуться</a>
+<hr>
+
+<div class="header1">Экранирование спец.символов в HTML-строке</div>
+<code class="javascript">/*----------------------------------------------------|
+| Код любого спец.символа можно найти в этой таблице: |
+| https://ascii.cl/htmlcodes.htm                      |
+|----------------------------------------------------*/
+
+$.escapeHtml = (function() {
+// Список кодов спец.символов которые будем экранировать
+    var codes = [
+        34,// "
+        38,// &
+        39,// '
+        47,// /
+        60,// <
+        61,// =
+        62,// >
+        96 // `
+    ];
+    
+// Создаем таблицу спец.символов
+    var chars = {};
+    var char = '';
+    var reg = '';
+    
+// Заполняем таблицу спец.символов
+    for (var i = 0; i < codes.length; i++) {
+        char = String.fromCodePoint(codes[i]);
+        chars[char] = codes[i];
+        reg += char;
+    }
+    
+// Создаем регулярное выражение
+    reg = new RegExp('['+reg+']', 'g');
+    
+// Возвращаем функцию
+    return function(str) {
+    // Поиск спец.символов
+        return (typeof str == 'string' ? str : ''+str).replace(reg, function(char) {
+        // Экранируем спец.символы
+            return '&#'+chars[char]+';';
+        });
+    };
+}());
+
+console.log('Результат:');
+console.log(escapeHtml('"'));
+console.log(escapeHtml('&'));
+console.log(escapeHtml('>'));
+console.log(escapeHtml("'"));
+console.log(escapeHtml('/'));
+console.log(escapeHtml('<'));
+console.log(escapeHtml('='));
+console.log(escapeHtml('>'));
+console.log(escapeHtml('`'));
+
+/*
+
+Результат:
+&#38;#34;
+&#38;#38;
+&#38;#62;
+&#38;#39;
+&#38;#47;
+&#38;#60;
+&#38;#61;
+&#38;#62;
+&#38;#96;
+
+*/</code>
+
+<div class="header1">Преобразование символа в число и обратно</div>
+<code class="javascript">var str = 'ABZ';
+
+    for (var i = 0; i < str.length; i++) {
+        console.log(str[i]+' = '+str[i].codePointAt());
+    }
+    
+/*
+
+A = 65
+B = 66
+Z = 90
+
+*/
+
+console.log('Z'.codePointAt());// 90
+console.log(String.fromCodePoint(90));// Z
+
+/*
+
+90
+Z
+
+*/
+</code>
+
+
+</pre>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad('javascript');</script>
+</body>
+</html>

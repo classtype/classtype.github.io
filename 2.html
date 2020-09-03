@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+body {background-color:#EEEEEE;}
+#main {margin:0 25%; padding:10% 0 25%;}
+.input {margin:100px 25% 0;  font-size:72px; border:1px solid #AAAAAA;}
+input {margin:0; padding:0; width:100%; font-size:72px; border:0;}
+#button {text-align:center;}
+</style>
+<script>
+function action(val) {
+    document.getElementById('result').value = document.getElementById('action').value.codePointAt()||'';
+    if (!val) {
+        document.getElementById('result').select();
+    }
+}
+
+function clearInput() {
+    document.getElementById('action').value = String.fromCodePoint(8482);
+    action(true);
+    document.getElementById('action').select();
+}
+
+window.onclick = function() {
+    if (document.getElementById('action').value.codePointAt() == 8482) {
+        document.getElementById('action').select();
+    }
+    
+    else {
+        document.getElementById('result').select();
+    }
+};
+
+window.onload = clearInput;
+</script>
+    </head>
+    <body>
+        <div id="main">
+            <div class="input"><input id="action" type="text" onKeyUp="action()" autofocus></div>
+            <div class="input"><input id="result" type="text" readonly></div>
+            <div class="input"><div id="button" onClick="clearInput()">Clear</div></div>
+        </div>
+    </body>
+</html>

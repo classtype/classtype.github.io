@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/tomorrow-night.min.css" rel="stylesheet">
+	<link href="./src/css/style.css" rel="stylesheet">
+</head>
+<body>
+<pre class="text"><a href="./index.html">Вернуться</a>
+<hr>
+
+<div class="header1">Удалить дерриктоию workspace</div>
+<code>sudo rm -r workspace
+
+</code>
+
+<div class="header1">Запустить новый контейнер cloud9</div>
+<code>clear && docker run -d --rm \
+           -v $(pwd)/workspace:/workspace \
+           -v $(pwd)/user.settings:/root/.c9/user.settings \
+           -p 8181:8181 sapk/cloud9 \
+           --auth : &&
+clear && docker ps -a
+
+</code>
+
+<div class="header1">Удалить все контейнеры</div>
+<code>clear && docker stop $(docker ps -aq) &&
+clear && docker ps -a
+
+</code>
+
+<div class="header1">Список текущих контейнеров</div>
+<code>clear && docker ps -a
+
+</code>
+
+<div class="header1">user.settings</div>
+<code class="javascript">{
+    "ace": {
+        "@animatedScroll": true,
+        "@antialiasedfonts": false,
+        "@behavioursEnabled": true,
+        "@cursorStyle": "ace",
+        "@displayIndentGuides": true,
+        "@fadeFoldWidgets": true,
+        "@fontFamily": "Monaco, Menlo, Ubuntu Mono, Consolas, source-code-pro, monospace",
+        "@fontSize": 12,
+        "@highlightActiveLine": true,
+        "@highlightGutterLine": true,
+        "@highlightSelectedWord": true,
+        "@keyboardmode": "default",
+        "@mergeUndoDeltas": true,
+        "@overwrite": false,
+        "@printMarginColumn": 100,
+        "@scrollPastEnd": 0.5,
+        "@scrollSpeed": 2,
+        "@selectionStyle": "line",
+        "@showFoldWidgets": true,
+        "@showGutter": true,
+        "@showInvisibles": false,
+        "@showLineNumbers": true,
+        "@showPrintMargin": true,
+        "@theme": "ace/theme/cloud9_night",
+        "@useWrapMode": false,
+        "@wrapBehavioursEnabled": false,
+        "@wrapToView": true,
+        "custom-types": {
+            "json()": {
+                "^Untitled": "javascript",
+                "^ports": "sh",
+                "^searchresults": "c9search",
+                "settings": "javascript"
+            }
+        },
+        "statusbar": {
+            "@show": true
+        }
+    },
+    "breakpoints": {
+        "@active": true
+    },
+    "build": {
+        "@autobuild": false
+    },
+    "collab": {
+        "@showbubbles": true,
+        "@timeslider-visible": false
+    },
+    "debug": {
+        "@autoshow": true,
+        "@pause": 0
+    },
+    "findinfiles": {
+        "@clear": true,
+        "@consolelaunch": false,
+        "@fullpath": false,
+        "@project": "/",
+        "@scrolldown": false
+    },
+    "general": {
+        "@animateui": true,
+        "@automerge": false,
+        "@autosave": false,
+        "@confirmexit": false,
+        "@confirmmerge": true,
+        "@downloadFilesAs": "auto",
+        "@preview-navigate": false,
+        "@preview-tree": false,
+        "@revealfile": false,
+        "@skin": "dark",
+        "@treestyle": "default"
+    },
+    "imgeditor": {
+        "@smooth": false,
+        "@zoom": 100
+    },
+    "installer": {
+        "@auto": false
+    },
+    "key-bindings": {
+        "@platform": "auto",
+        "@preset": "default"
+    },
+    "language": {
+        "@continuousCompletion": true,
+        "@enterCompletion": true,
+        "@hints": true,
+        "@instanceHighlight": true,
+        "@overrideMultiselectShortcuts": true
+    },
+    "metadata": {
+        "@undolimit": 100
+    },
+    "openfiles": {
+        "@hidetree": false,
+        "@show": false
+    },
+    "output": {
+        "@backgroundColor": "#003a58",
+        "@foregroundColor": "#FFFFFF",
+        "@keepOutput": false,
+        "@nosavequestion": false,
+        "@selectionColor": "#225477"
+    },
+    "preview": {
+        "@default": "preview.browser",
+        "@onSave": false,
+        "@running_app": false
+    },
+    "projecttree": {
+        "@hiddenFilePattern": "*.pyc, __pycache__, .*, node_modules",
+        "@scope": false,
+        "@showhidden": false
+    },
+    "runconfig": {
+        "@debug": true,
+        "@saveallbeforerun": true,
+        "@showruncfglist": false
+    },
+    "tabs": {
+        "@asterisk": false,
+        "@autoclosepanes": false,
+        "@show": true,
+        "@title": false
+    },
+    "terminal": {
+        "@antialiasedfonts": true,
+        "@backgroundColor": "#153649",
+        "@blinking": false,
+        "@collab": "",
+        "@defaultEnvEditor": false,
+        "@fontfamily": "Ubuntu Mono, Menlo, Consolas, monospace",
+        "@fontsize": 12,
+        "@foregroundColor": "#FFFFFF",
+        "@scrollback": 1000,
+        "@selectionColor": "#515D77"
+    },
+    "test": {
+        "@collapsegroups": false,
+        "@inlineresults": true,
+        "coverage": {
+            "@alwayson": false,
+            "@fullline": true
+        }
+    },
+    "tour": {
+        "@default-complete": false
+    },
+    "welcome": {
+        "@first": true,
+        "@switched": true
+    },
+    "zentabs": {
+        "@tabLimit": 0,
+        "@useZenTabs": false
+    }
+}
+</code>
+
+https://www.reg.ru/qa/t/kak-avtomaticheski-zapuskat-kontejnery-docker-posle-perezagruzki/108
+
+
+</pre>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad('language-shell');</script>
+</body>
+</html>

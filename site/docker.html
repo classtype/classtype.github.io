@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="./src/css/style.css" rel="stylesheet">
+</head>
+<body>
+<pre class="text"><a href="./index.html">Вернуться</a>
+--------------------------------------------------------------------------------
+
+# Запустить ubuntu и войти в терминал
+docker run -it --rm ubuntu bash
+
+# Список всех контейнеров
+docker ps -a
+
+# Список всех образов
+docker images
+
+# Удаление всех запущенных контейнеров
+docker stop $(docker ps -aq) && docker rm $(docker ps -aq) && docker ps -a
+docker rm $(docker ps -a -f status=exited) && docker rm $(docker ps -a -f status=created -q) && docker ps -a
+
+# Удаление всех образов
+docker rmi $(docker images -a -q) && docker images
+
+--------------------------------------------------------------------------------
+
+# Stop all containers
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
+
+## Remove unused images and containers
+docker rm -v $(docker ps -aqf status=exited)
+docker rmi $(docker images -qf dangling=true)
+
+# Remove unused volumes (shared volumes will be list after this)
+
+docker volume rm $(docker volume ls -qf dangling=true)
+docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes
+
+--------------------------------------------------------------------------------
+
+# Запустить новый контейнер cloud9
+
+clear && docker run -d --rm \
+           -v $(pwd)/workspace:/workspace \
+           -v $(pwd)/user.settings:/root/.c9/user.settings \
+           -p 8181:8181 sapk/cloud9 \
+           --auth : &&
+clear && docker ps -a
+
+
+
+clear && docker stop $(docker ps -aq) &&
+clear && docker ps -a
+
+
+
+clear && docker ps -a
+
+--------------------------------------------------------------------------------
+
+
+</pre>
+</body>
+</html>

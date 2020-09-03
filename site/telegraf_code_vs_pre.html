@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/tomorrow-night.min.css" rel="stylesheet">
+	<link href="./src/css/style.css?1" rel="stylesheet">
+</head>
+<body>
+<pre class="text"><a href="./index.html">Вернуться</a>
+<hr>
+
+<div class="header1">Визуальные различия между &lt;code&gt; и &lt;pre&gt;</div>
+<code class="javascript">const Telegraf = require('telegraf');
+const bot = new Telegraf(process.env.BOT_TOKEN);
+
+bot.hears('sample2', function(ctx) {
+    return ctx.replyWithHTML(
+        '&lt;code&gt;inline fixed-width code&lt;/code&gt;\n' +
+        '&lt;pre&gt;inline fixed-width code&lt;/pre&gt;'
+    );
+});
+
+bot.launch();
+</code>
+
+
+<div class="header1">Визуально разница есть только в Web версии</div>
+<div class="center"><img src="./src/img/telegraf_code_vs_pre_nocode.png" width="376" height="1812"></div>
+
+
+</pre>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad('javascript');</script>
+</body>
+</html>

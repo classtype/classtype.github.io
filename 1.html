@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<script>
+function click1() {
+    document.getElementById('r').innerHTML = document.getElementById('id1').value;
+}
+</script>
+<style>
+body {margin:10px;}
+input {margin:0; padding:0; border:0;}
+input:active {border-color:#FF0000;}
+.input {border:1px solid #AAAAAA;}
+</style>
+    </head>
+    <body>
+        <div class="input">
+            <input id="id1" onKeyUp="click1()" style="width:100%; font-size:72px;">
+        </div>
+        <div id="r" style="width:100%; font-size:72px;"></div>
+    </body>
+</html>
